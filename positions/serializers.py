@@ -21,7 +21,7 @@ class GlobalSerializersAll(serializers.ModelSerializer):
 
     class Meta:
         model = Global
-        fields =  '__all__'
+        fields =  ['id', 'global_position','created','global_user']
 
 
 class LacalSerializersAll(serializers.ModelSerializer):

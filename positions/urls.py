@@ -13,7 +13,7 @@ router.register('global', GlobalViewSet)
 router.register('local', LocalViewSet)
 
 router.register('all', LocalViewSetAllFilter)
-router.register('all', GlobalViewSetAllFilter)
+router.register('dafllsds', GlobalViewSetAllFilter)
 
 
 urlpatterns = [
