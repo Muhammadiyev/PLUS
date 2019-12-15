@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Global, Local
 
-# Register your models here.
+admin.site.register(Global)
+admin.site.register(Local)

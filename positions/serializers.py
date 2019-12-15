@@ -1,16 +1,32 @@
 from rest_framework import serializers
-from .models import Global, Lacal
-
+from .models import Global, Local
+from users.serializers import UserGlobalSerializers, UserLocalSerializers
 
 class GlobalSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Global
-        fields = ('id', 'global_position', 'user')
+        fields = ('id', 'global_position', 'global_user')
 
 
 class LacalSerializers(serializers.ModelSerializer):
 
     class Meta:
-        model = Lacal
-        fields = ('id', 'local_position', 'user')
+        model = Local
+        fields = ('id', 'local_position', 'local_user')
+
+
+class GlobalSerializersAll(serializers.ModelSerializer):
+    global_user = UserGlobalSerializers(read_only=True)
+
+    class Meta:
+        model = Global
+        fields =  '__all__'
+
+
+class LacalSerializersAll(serializers.ModelSerializer):
+    local_user = UserLocalSerializers(read_only=True)
+    
+    class Meta:
+        model = Local
+        fields = '__all__'

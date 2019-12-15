@@ -1,20 +1,20 @@
 from django.db import models
 from users.models import User
 
-
-class Lacal(models.Model):
+class Local(models.Model):
     local_position = models.IntegerField(default=0)
-    local_user = models.ForeignKey(User,blank=True,null=True, on_delete=models.CASCADE,related_name='local_of_user')
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+    local_user = models.ForeignKey(User,blank=True, on_delete=models.CASCADE)
+    
     def __str__(self):
-        return "%s" % (self.user.username)
+        return "%s" % (self.local_position)
 
 class Global(models.Model):
     global_position = models.IntegerField(default=0)
-    global_user = models.ForeignKey(User,blank=True,null=True, on_delete=models.CASCADE,related_name='global_of_user')
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+    global_user = models.ForeignKey(User,blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s" % (self.user.username)
+        return "%s" % (self.global_position)
