@@ -8,7 +8,6 @@ from rest_framework import generics
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
 from rest_framework.filters import SearchFilter, OrderingFilter
-from django.db.models import Max
 
 
 class GlobalViewSet(viewsets.ModelViewSet):
@@ -22,9 +21,11 @@ class LocalViewSet(viewsets.ModelViewSet):
 
 
 class LocalViewSetAllFilter(viewsets.ModelViewSet):
-    queryset = Local.objects.all()
     serializer_class = LacalSerializersAll
+    queryset = Local.objects.all().order_by('-local_position')
+
+
 
 class GlobalViewSetAllFilter(viewsets.ModelViewSet):
-    queryset = Global.objects.all()
     serializer_class = GlobalSerializersAll
+    queryset = Global.objects.all().order_by('-global_position')

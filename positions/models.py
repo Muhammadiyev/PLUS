@@ -18,3 +18,4 @@ class Global(models.Model):
 
     def __str__(self):
         return "%s" % (self.global_user)
+

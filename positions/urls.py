@@ -12,8 +12,8 @@ router = routers.DefaultRouter()
 router.register('global', GlobalViewSet)
 router.register('local', LocalViewSet)
 
-router.register('all', LocalViewSetAllFilter)
-router.register('dafllsds', GlobalViewSetAllFilter)
+router.register('localAll', LocalViewSetAllFilter)
+router.register('globalAll', GlobalViewSetAllFilter)
 
 
 urlpatterns = [
